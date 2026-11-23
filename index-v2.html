@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigerslev Boldklub — Next-Gen Modern Club Portal (V2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- INLINED V2 STYLES (NO EXTERNAL CSS FILE NEEDED) -->
+  <style>
+/* ══════════════════════════════════════════════════════════════════════════
+   VIGERSLEV BOLDKLUB — PURE WHITE MODERN THEME (V2)
+   Design Concept: Scandinavian Clean White & Emerald Football Portal
+   100% Vanilla CSS3 — Responsive — Zero Frameworks
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-deep:        #ffffff;
+  --bg-surface:     #f6faf7;
+  --bg-card:        #ffffff;
+  --bg-card-hover:  #ffffff;
+  
+  --emerald-neon:   #18863b;
+  --emerald-primary:#1ea744;
+  --emerald-dark:   #093817;
+  --emerald-border: #c8e4d0;
+  
+  --white:          #ffffff;
+  --text-dark:      #141414;
+  --text-muted:     #4a5c50;
+  --text-dim:       #728678;
+  
+  --font-display:   'Syne', sans-serif;
+  --font-heading:   'Oswald', sans-serif;
+  --font-body:      'Montserrat', sans-serif;
+  
+  --max-w:          1240px;
+  --radius-lg:      16px;
+  --radius-md:      10px;
+  --radius-sm:      6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body.theme-modern {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: var(--text-dark);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+.site-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DESIGN SWITCHER BAR (Sticky Top Announcement)
+   ══════════════════════════════════════════════════════════════════════════ */
+.design-switcher-bar {
+  background: linear-gradient(90deg, #093817 0%, #155727 50%, #0c431d 100%);
+  border-bottom: 2px solid var(--emerald-primary);
+  padding: 10px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.switcher-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.switcher-badge {
+  background-color: var(--emerald-primary);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.switcher-text {
+  font-size: 12px;
+  color: #d1eed8;
+  font-weight: 500;
+  flex: 1;
+}
+
+.switcher-links {
+  display: flex;
+  gap: 8px;
+}
+
+.switcher-btn {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-ghost {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-active {
+  background-color: var(--white);
+  color: #0b3819;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   1. CLEAN WHITE HEADER
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-header {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 2px solid #e2ebe4;
+  position: relative;
+  z-index: 500;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Brand */
+.brand-logo-combo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-glow-wrapper {
+  position: relative;
+}
+
+.modern-crest {
+  width: 50px;
+  height: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-est {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--emerald-neon);
+  letter-spacing: 2px;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 800;
+  color: #092c13;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+/* Nav Menu */
+.nav-items-modern {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-items-modern li a {
+  display: inline-block;
+  padding: 8px 14px;
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #333333;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.nav-items-modern li a:hover {
+  color: var(--emerald-neon);
+  background-color: #f0f7f2;
+}
+
+.nav-items-modern li.active a {
+  color: var(--white);
+  background-color: var(--emerald-neon);
+  box-shadow: 0 2px 8px rgba(24, 134, 59, 0.25);
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-contact-pill {
+  font-size: 11.5px;
+  color: #4a5c50;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f2f7f4;
+  padding: 6px 12px;
+  border-radius: 50px;
+  border: 1px solid #dce8e0;
+  font-weight: 600;
+}
+
+.btn-contact-pill:hover {
+  color: var(--emerald-neon);
+  border-color: var(--emerald-neon);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--emerald-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--emerald-primary);
+}
+
+.btn-neon-cta {
+  background-color: var(--emerald-neon);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 3px 10px rgba(24, 134, 59, 0.3);
+}
+
+.btn-neon-cta:hover {
+  background-color: #157332;
+  transform: translateY(-1px);
+}
+
+.nav-toggle-modern {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle-modern span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #222222;
+  border-radius: 2px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   2. CLEAN WHITE HERO & MATCH COUNTDOWN
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-hero {
+  position: relative;
+  min-height: 580px;
+  padding: 60px 0 70px;
+  background: linear-gradient(180deg, #f2f8f4 0%, #ffffff 100%);
+  border-bottom: 2px solid #e2ebe4;
+  overflow: hidden;
+}
+
+.hero-bg-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.radial-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #1ea744 0%, transparent 70%);
+  top: -100px;
+  left: 10%;
+}
+
+.glow-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #0c4a20 0%, transparent 70%);
+  bottom: -150px;
+  right: 5%;
+}
+
+.pitch-lines-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(ellipse at 50% 120%, rgba(30, 167, 68, 0.05) 0%, transparent 60%),
+    linear-gradient(rgba(30, 167, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 167, 68, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 60px 60px, 60px 60px;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Pitch */
+.club-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e5f5ea;
+  border: 1px solid #bde6cb;
+  color: var(--emerald-neon);
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.pulse-emerald {
+  width: 8px;
+  height: 8px;
+  background-color: var(--emerald-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--emerald-primary);
+  animation: pulseAnim 2s infinite;
+}
+
+@keyframes pulseAnim {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.hero-big-headline {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  color: #082611;
+  margin-bottom: 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #18863b 0%, #156b31 50%, #0c431d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin-bottom: 34px;
+}
+
+/* Social buttons strip */
+.hero-social-strip {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-fb-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--white);
+  border: 1px solid #d5e3da;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.hero-fb-card:hover {
+  background-color: #f3faf5;
+  border-color: var(--emerald-neon);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(24, 134, 59, 0.15);
+}
+
+.fb-icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #1877f2;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fb-icon-circle.blue {
+  background: #0056b3;
+}
+
+.fb-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.fb-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--emerald-neon);
+  letter-spacing: 0.8px;
+}
+
+.fb-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.btn-arrow-chip {
+  margin-left: auto;
+  font-size: 14px;
+  color: #728678;
+}
+
+/* Right Match Widget */
+.live-match-widget {
+  background: var(--white);
+  border: 1px solid #dce8e0;
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  box-shadow: 0 16px 48px rgba(0, 40, 15, 0.08), 0 0 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.live-match-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #1ea744 0%, #0d4a20 100%);
+}
+
+.match-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #e5f5ea;
+  color: var(--emerald-neon);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.blinking-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #e53935;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #e53935;
+  animation: pulseAnim 1.5s infinite;
+}
+
+.league-meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+/* Teams Faceoff */
+.match-faceoff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.team-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  text-align: center;
+}
+
+.team-badge-box {
+  width: 64px;
+  height: 64px;
+  background-color: #f0f5f2;
+  border: 1px solid #d5e2d8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.vbk-box {
+  background-color: #0c431d;
+  border-color: #0c431d;
+}
+
+.vbk-box img {
+  width: 40px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.team-name-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.home-away-tag {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.vs-text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--emerald-neon);
+}
+
+.match-time-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Countdown */
+.countdown-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f3f8f5;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #dce8e0;
+}
+
+.time-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+}
+
+.time-digit {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: #0a401b;
+  line-height: 1;
+}
+
+.time-name {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.cd-colon {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #a0b6a6;
+  line-height: 1;
+}
+
+.match-venue-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.match-cta-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-widget-primary {
+  flex: 1.2;
+  background-color: var(--emerald-neon);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(24, 134, 59, 0.25);
+}
+
+.btn-widget-primary:hover {
+  background-color: #147232;
+}
+
+.btn-widget-secondary {
+  flex: 0.8;
+  background-color: #f2f7f4;
+  color: #2b2b2b;
+  border: 1px solid #d5e2d8;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-widget-secondary:hover {
+  background-color: #e4efe7;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3. CLEAN WHITE MATCHCENTER (Tabs & White Info Cards)
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-matchcenter-section {
+  background-color: #f7faf8;
+  padding: 70px 0 80px;
+  border-bottom: 2px solid #e2ebe4;
+}
+
+.section-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.eyebrow-emerald {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--emerald-neon);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.modern-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #082611;
+  line-height: 1.1;
+}
+
+.section-lead-muted {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+/* Tabs Bar */
+.team-tabs-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.team-tab-btn {
+  background-color: var(--white);
+  border: 1px solid #d2ded5;
+  color: #333333;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.tab-rank {
+  background-color: #eaf3ed;
+  color: var(--emerald-neon);
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.team-tab-btn:hover {
+  background-color: #edf7f0;
+  color: var(--emerald-neon);
+  border-color: var(--emerald-neon);
+}
+
+.team-tab-btn.active {
+  background-color: var(--emerald-neon);
+  color: var(--white);
+  border-color: var(--emerald-neon);
+  box-shadow: 0 4px 14px rgba(24, 134, 59, 0.3);
+}
+
+.team-tab-btn.active .tab-rank {
+  background-color: #0f5425;
+  color: var(--white);
+}
+
+/* Panels */
+.tab-content-wrapper {
+  position: relative;
+}
+
+.team-tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.team-tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.glass-info-card {
+  background: var(--white);
+  border: 1px solid #dce8e0;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.glass-info-card:hover {
+  border-color: var(--emerald-neon);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(24, 134, 59, 0.12);
+}
+
+.highlighted-border {
+  border-color: var(--emerald-neon);
+  box-shadow: 0 4px 20px rgba(24, 134, 59, 0.1);
+}
+
+.gic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.gic-badge {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.status-win  { background-color: #2e8b46; color: var(--white); }
+.status-draw { background-color: #c9800c; color: var(--white); }
+.badge-upcoming { background-color: #0056b3; color: var(--white); }
+.badge-table { background-color: #e5f5ea; color: var(--emerald-neon); }
+
+.gic-date {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.gic-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.score-summary-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #f5f9f6;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+  border: 1px solid #e2ebe4;
+}
+
+.score-team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-team.highlight .st-name {
+  color: var(--emerald-neon);
+  font-weight: 700;
+}
+
+.st-score {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: #111111;
+}
+
+.score-divider {
+  font-size: 20px;
+  color: #8fa496;
+}
+
+.next-fixture-box {
+  background-color: #f5f9f6;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+  text-align: center;
+  border: 1px solid #e2ebe4;
+}
+
+.fixture-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.highlight-vbk {
+  color: var(--emerald-neon);
+}
+
+.vs-tag {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.venue-tag {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+/* Mini Table */
+.mini-table {
+  background-color: #f5f9f6;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #e2ebe4;
+}
+
+.t-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 12px;
+  color: #333333;
+  border-bottom: 1px solid #e8efe9;
+}
+
+.t-row:last-child { border-bottom: none; }
+.t-head { color: var(--text-dim); font-weight: 700; font-size: 11px; }
+.t-vbk { color: var(--emerald-neon); font-weight: 700; background-color: #e3f4e8; padding: 6px 4px; border-radius: 3px; }
+
+.gic-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.gic-link {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--emerald-neon);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+}
+
+.gic-link:hover {
+  color: #0b3819;
+  text-decoration: underline;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   4. CLEAN WHITE BENTO NEWS GRID
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-news-section {
+  padding: 80px 0;
+  background-color: var(--white);
+}
+
+.btn-outline-glow {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--emerald-neon);
+  padding: 8px 16px;
+  border: 1px solid var(--emerald-neon);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.btn-outline-glow:hover {
+  background-color: #eaf5ed;
+}
+
+.bento-news-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.bento-card {
+  background: var(--white);
+  border: 1px solid #dce8e0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--emerald-neon);
+  box-shadow: 0 12px 32px rgba(24, 134, 59, 0.12);
+}
+
+.bento-hero-story {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.bento-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.bento-card:hover .bento-cover {
+  transform: scale(1.05);
+}
+
+.bento-badge-top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: var(--emerald-neon);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.bento-story-body {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.meta-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.meta-tag {
+  font-family: var(--font-heading);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  color: var(--white);
+}
+
+.meta-tag.emerald { background-color: var(--emerald-neon); }
+.meta-tag.gold    { background-color: #b57a14; }
+.meta-tag.blue    { background-color: #1765a8; }
+
+.meta-time {
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+
+.bento-title-lg {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111111;
+  margin-bottom: 12px;
+}
+
+.bento-title-lg a:hover {
+  color: var(--emerald-neon);
+}
+
+.bento-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.btn-read-story {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--emerald-neon);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-read-story:hover {
+  color: #0b3819;
+}
+
+.bento-small-story {
+  display: flex;
+  height: 180px;
+}
+
+.bento-img-wrap-sm {
+  width: 42%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-badge-sm {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.bento-story-body-sm {
+  width: 58%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bento-title-sm {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111111;
+}
+
+.bento-title-sm a:hover {
+  color: var(--emerald-neon);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   5. MEMBERSHIP EXPERIENCE (Clean Emerald Banner)
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-cta-section {
+  padding: 40px 0 80px;
+  background-color: #f7faf8;
+}
+
+.cta-glass-card {
+  background: linear-gradient(135deg, #093817 0%, #155727 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 16px 48px rgba(9, 56, 23, 0.15);
+  color: var(--white);
+}
+
+.pill-glow {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #bbf0cb;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+
+.cta-hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.text-emerald {
+  color: #7de89e;
+}
+
+.cta-hero-sub {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #e0f2e5;
+  margin-bottom: 24px;
+}
+
+.cta-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #e0f2e5;
+}
+
+.chk {
+  color: #7de89e;
+  font-weight: 900;
+}
+
+.cta-action-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-emerald-large {
+  background-color: var(--white);
+  color: #0b3819;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-emerald-large:hover {
+  background-color: #f0f7f2;
+  transform: translateY(-2px);
+}
+
+.btn-ghost-large {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-ghost-large:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--white);
+}
+
+.cta-stat-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-glass-badge {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: #7de89e;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-tit {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #e0f2e5;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   6. VENUE & CLUBHOUSE
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-venue-section {
+  padding: 60px 0;
+  background-color: var(--white);
+  border-bottom: 2px solid #e2ebe4;
+}
+
+.venue-flex-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: #f7faf8;
+  border: 1px solid #dce8e0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.venue-info-pane {
+  padding: 40px;
+}
+
+.venue-heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #0c3817;
+  margin-bottom: 14px;
+}
+
+.venue-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.venue-contact-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.v-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.v-icon {
+  font-size: 18px;
+  color: var(--emerald-neon);
+}
+
+.v-row strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #111111;
+  letter-spacing: 0.5px;
+}
+
+.v-row p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.v-row a {
+  color: var(--emerald-neon);
+  font-weight: 600;
+}
+
+.btn-emerald-route {
+  display: inline-block;
+  background-color: var(--emerald-neon);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 3px 10px rgba(24, 134, 59, 0.25);
+}
+
+.btn-emerald-route:hover {
+  background-color: #147232;
+}
+
+.venue-image-pane {
+  position: relative;
+  background-color: #0b3d1b;
+}
+
+.venue-backdrop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.venue-card-floater {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid #dce8e0;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.vcf-crest img {
+  width: 44px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.vcf-text strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: #0c3817;
+  letter-spacing: 1px;
+}
+
+.vcf-text span {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   7. ULTRA-CLEAN SPONSOR WALL
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-sponsor-wall {
+  padding: 60px 0;
+  background-color: var(--white);
+}
+
+.sponsor-wall-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sponsor-wall-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.8vw, 30px);
+  font-weight: 800;
+  color: #0c3817;
+}
+
+.modern-sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.msp-card {
+  background-color: var(--white);
+  border: 1px solid #d8e2da;
+  border-radius: var(--radius-sm);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.msp-card:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(24, 134, 59, 0.15);
+  border-color: var(--emerald-neon);
+}
+
+.msp-card img {
+  max-height: 38px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.sponsor-cta-text {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sponsor-cta-text a {
+  color: var(--emerald-neon);
+  font-weight: 700;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. MODERN FOOTER
+   ══════════════════════════════════════════════════════════════════════════ */
+.modern-footer {
+  background-color: #06220e;
+  border-top: 3px solid var(--emerald-neon);
+  padding: 60px 0 24px;
+  color: #e0eee4;
+}
+
+.footer-primary-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}
+
+.f-logo-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.f-crest {
+  width: 44px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.f-club-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--white);
+}
+
+.f-tagline {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  color: #7de89e;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.f-summary {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #c0ded0;
+  max-width: 320px;
+  margin-bottom: 18px;
+}
+
+.f-social-cluster {
+  display: flex;
+  gap: 10px;
+}
+
+.f-social-cluster a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.2s;
+}
+
+.f-social-cluster a:hover {
+  background-color: var(--emerald-primary);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.f-head {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.f-head::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: var(--emerald-primary);
+}
+
+.f-links {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.f-links a {
+  font-size: 13px;
+  color: #c0ded0;
+  transition: all 0.15s;
+}
+
+.f-links a:hover {
+  color: var(--white);
+  padding-left: 4px;
+}
+
+.f-address-box p {
+  font-size: 12.5px;
+  color: #c0ded0;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.f-address-box a {
+  color: #7de89e;
+}
+
+.btn-f-join {
+  display: inline-block;
+  background-color: var(--emerald-primary);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+}
+
+.footer-legal-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #8dafa0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE QUERIES
+   ══════════════════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 1024px) {
+  .hero-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .panel-grid-3col {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-hero-story {
+    grid-row: auto;
+  }
+
+  .bento-small-story {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .bento-img-wrap-sm {
+    width: 100%;
+    height: 180px;
+  }
+
+  .bento-story-body-sm {
+    width: 100%;
+  }
+
+  .cta-glass-card {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-flex-card {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-image-pane {
+    height: 240px;
+  }
+
+  .modern-sponsor-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-primary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-actions {
+    display: none;
+  }
+
+  .nav-toggle-modern {
+    display: flex;
+  }
+
+  .nav-items-modern {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 2px solid var(--emerald-neon);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-items-modern.open {
+    display: flex;
+  }
+
+  .nav-items-modern li {
+    width: 100%;
+  }
+
+  .nav-items-modern li a {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .hero-social-strip {
+    flex-direction: column;
+  }
+
+  .hero-fb-card {
+    width: 100%;
+  }
+
+  .modern-sponsor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-primary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body class="theme-modern">
+
+  <!-- ═══════════════════════════════════════════════
+       DESIGN SWITCHER BAR (Sticky Top Announcement)
+  ═══════════════════════════════════════════════ -->
+  <aside class="design-switcher-bar">
+    <div class="switcher-inner">
+      <span class="switcher-badge">✨ NYT MODERNE DESIGN (V2)</span>
+      <span class="switcher-text">Skandinavisk Hvidt &amp; Smaragdgrønt Tema • Live kamp-nedtælling &amp; interaktivt matchcenter</span>
+      <div class="switcher-links">
+        <a href="index.html" class="switcher-btn btn-ghost">← Skift til Klassisk Reference Design (V1)</a>
+        <a href="index-v2.html" class="switcher-btn btn-active">Moderne Design (V2)</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════
+       1. MODERN GLASS HEADER
+  ═══════════════════════════════════════════════ -->
+  <header class="modern-header" id="modernHeader">
+    <div class="header-inner">
+      
+      <!-- Brand Logo & Identity -->
+      <a href="index-v2.html" class="brand-logo-combo">
+        <div class="logo-glow-wrapper">
+          <img src="images/logo.webp" alt="Vigerslev Boldklub" class="modern-crest" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-est">EST. 1956 • VALBY</span>
+          <span class="brand-title">VIGERSLEV BK</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation -->
+      <nav class="modern-nav">
+        <button class="nav-toggle-modern" id="menuToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-items-modern" id="menuList">
+          <li class="active"><a href="#hero">Forside</a></li>
+          <li><a href="#matchcenter">Matchcenter</a></li>
+          <li><a href="#hold">Vores Hold</a></li>
+          <li><a href="#nyheder">Nyheder</a></li>
+          <li><a href="#medlem">Bliv Medlem</a></li>
+          <li><a href="#klubben">Klubben</a></li>
+          <li><a href="#sponsorer">Sponsorer</a></li>
+        </ul>
+      </nav>
+
+      <!-- Quick Actions Header -->
+      <div class="header-actions">
+        <a href="mailto:kontakt@vigerslevboldklub.dk" class="btn-contact-pill">
+          <span class="status-dot"></span> kontakt@vigerslevboldklub.dk
+        </a>
+        <a href="#medlem" class="btn-neon-cta">Bliv Medlem</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════
+       2. NEXT-GEN HERO WITH LIVE MATCH COUNTDOWN
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-hero" id="hero">
+    <div class="hero-bg-fx">
+      <div class="radial-glow glow-1"></div>
+      <div class="radial-glow glow-2"></div>
+      <div class="pitch-lines-overlay"></div>
+    </div>
+
+    <div class="hero-content-wrapper">
+      
+      <!-- Left Column: High-Impact Club Pitch -->
+      <div class="hero-left-col">
+        <div class="club-tag-pill">
+          <span class="pulse-emerald"></span> KØBENHAVNERSERIEN &bull; FODBOLD I VALBY SIDEN 1956
+        </div>
+        <h1 class="hero-big-headline">
+          MERE END BARE ET HOLD.<br />
+          <span class="text-gradient">FÆLLESSKAB &amp; FIGHT.</span>
+        </h1>
+        <p class="hero-desc">
+          Velkommen til Vigerslev Boldklub. Fra vores 1. hold i Københavnerserien til vores legendariske +60 veteraner — vi skaber fodboldglæde og sammenhold for alle generationer i Valby.
+        </p>
+
+        <!-- Social Community Buttons (Modern Pill Style) -->
+        <div class="hero-social-strip">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="hero-fb-card official">
+            <div class="fb-icon-circle">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div class="fb-card-info">
+              <span class="fb-label">OFFICIEL FACEBOOK</span>
+              <span class="fb-title">Følg Vigerslev BK</span>
+            </div>
+            <span class="btn-arrow-chip">➔</span>
+          </a>
+
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="hero-fb-card fangroup">
+            <div class="fb-icon-circle blue">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <div class="fb-card-info">
+              <span class="fb-label">FANGRUPPE &bull; DEBAT</span>
+              <span class="fb-title">VBK Fangruppe</span>
+            </div>
+            <span class="btn-arrow-chip">➔</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Match Countdown Widget -->
+      <div class="hero-right-col">
+        <div class="live-match-widget">
+          
+          <div class="match-widget-header">
+            <span class="live-pill"><span class="blinking-dot"></span> NÆSTE KAMP</span>
+            <span class="league-meta">Københavnerserien (KS)</span>
+          </div>
+
+          <!-- Teams Faceoff -->
+          <div class="match-faceoff">
+            <div class="team-side">
+              <div class="team-badge-box">SBK</div>
+              <span class="team-name-label">Sundby BK 2</span>
+              <span class="home-away-tag">Hjemmebane</span>
+            </div>
+            
+            <div class="vs-divider">
+              <span class="vs-text">VS</span>
+              <span class="match-time-chip">Lør. 14/11 • 12:30</span>
+            </div>
+
+            <div class="team-side">
+              <div class="team-badge-box vbk-box">
+                <img src="images/logo.webp" alt="VBK" />
+              </div>
+              <span class="team-name-label">Vigerslev BK</span>
+              <span class="home-away-tag">Udebane</span>
+            </div>
+          </div>
+
+          <!-- Countdown Timer Display -->
+          <div class="countdown-display">
+            <div class="time-slot">
+              <span class="time-digit" id="cdDays">02</span>
+              <span class="time-name">DAGE</span>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="time-slot">
+              <span class="time-digit" id="cdHours">14</span>
+              <span class="time-name">TIMER</span>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="time-slot">
+              <span class="time-digit" id="cdMins">45</span>
+              <span class="time-name">MIN</span>
+            </div>
+            <span class="cd-colon">:</span>
+            <div class="time-slot">
+              <span class="time-digit" id="cdSecs">30</span>
+              <span class="time-name">SEK</span>
+            </div>
+          </div>
+
+          <!-- Match location & action -->
+          <div class="match-venue-row">
+            <span class="venue-icon">📍</span>
+            <span class="venue-name">Kløvermarkens Idrætsanlæg, Bane 4</span>
+          </div>
+
+          <div class="match-cta-actions">
+            <a href="#matchcenter" class="btn-widget-primary">Se Fuld Kampoversigt</a>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-widget-secondary">Rutevejledning</a>
+          </div>
+
+        </div><!-- /.live-match-widget -->
+      </div><!-- /.hero-right-col -->
+
+    </div><!-- /.hero-content-wrapper -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       3. INTERACTIVE MATCHCENTER & TEAMS TABS
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-matchcenter-section" id="matchcenter">
+    <div class="site-container">
+
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow-emerald">OFFICIELT MATCHCENTER</span>
+          <h2 class="modern-section-title">KAMPE, RESULTATER &amp; STILLING</h2>
+        </div>
+        <p class="section-lead-muted">
+          Følg alle 5 hold i Vigerslev Boldklub. Vælg et hold nedenfor for at se seneste resultat, kommende kampe og stilling.
+        </p>
+      </div>
+
+      <!-- Modern Team Filter Tabs -->
+      <div class="team-tabs-bar" role="tablist">
+        <button class="team-tab-btn active" data-team="hold1" role="tab" aria-selected="true">
+          <span class="tab-rank">KS</span> 1. Hold
+        </button>
+        <button class="team-tab-btn" data-team="hold2" role="tab" aria-selected="false">
+          <span class="tab-rank">S2</span> 2. Hold
+        </button>
+        <button class="team-tab-btn" data-team="hold3" role="tab" aria-selected="false">
+          <span class="tab-rank">S4</span> 3. Hold
+        </button>
+        <button class="team-tab-btn" data-team="hold4" role="tab" aria-selected="false">
+          <span class="tab-rank">S5</span> 4. Hold
+        </button>
+        <button class="team-tab-btn" data-team="veteran" role="tab" aria-selected="false">
+          <span class="tab-rank">+60</span> Veteraner
+        </button>
+      </div>
+
+      <!-- Tab Panels Container -->
+      <div class="tab-content-wrapper">
+
+        <!-- ── TAB 1: 1. HOLD (KS) ── -->
+        <div class="team-tab-panel active" id="tab-hold1">
+          <div class="panel-grid-3col">
+
+            <!-- Card 1: Seneste Resultat -->
+            <div class="glass-info-card">
+              <div class="gic-header">
+                <span class="gic-badge status-win">SEJR (3-1)</span>
+                <span class="gic-date">12. Nov 2024</span>
+              </div>
+              <h4 class="gic-title">Seneste Kamp</h4>
+              <div class="score-summary-box">
+                <div class="score-team">
+                  <span class="st-name">B1908</span>
+                  <span class="st-score">1</span>
+                </div>
+                <div class="score-divider">–</div>
+                <div class="score-team highlight">
+                  <span class="st-name">Vigerslev BK</span>
+                  <span class="st-score">3</span>
+                </div>
+              </div>
+              <p class="gic-note">Målscorere: M. Hansen (24'), T. Lind (67'), K. Poulsen (88')</p>
+              <a href="#" class="gic-link">Se Kampreferat &amp; Statistik ›</a>
+            </div>
+
+            <!-- Card 2: Næste Kamp -->
+            <div class="glass-info-card highlighted-border">
+              <div class="gic-header">
+                <span class="gic-badge badge-upcoming">KOMMENDE</span>
+                <span class="gic-date">Lør. 14. Nov • 12:30</span>
+              </div>
+              <h4 class="gic-title">Næste Udfordring</h4>
+              <div class="next-fixture-box">
+                <div class="fixture-row">
+                  <strong>Sundby BK 2</strong>
+                  <span class="vs-tag">VS</span>
+                  <strong class="highlight-vbk">Vigerslev BK</strong>
+                </div>
+                <span class="venue-tag">📍 Kløvermarkens Idrætsanlæg</span>
+              </div>
+              <p class="gic-note">Vigtig duel i toppen af Københavnerserien. Gratis adgang for alle tilskuere!</p>
+              <a href="#" class="gic-link">Fuld Kampprogram ›</a>
+            </div>
+
+            <!-- Card 3: Nuværende Stilling -->
+            <div class="glass-info-card">
+              <div class="gic-header">
+                <span class="gic-badge badge-table">LIGATABEL</span>
+                <span class="gic-date">Københavnerserien</span>
+              </div>
+              <h4 class="gic-title">Aktuel Stilling</h4>
+              <div class="mini-table">
+                <div class="t-row t-head">
+                  <span>Nr. Hold</span>
+                  <span>K</span>
+                  <span>Pts</span>
+                </div>
+                <div class="t-row">
+                  <span>5. Husum BK</span>
+                  <span>12</span>
+                  <span>20</span>
+                </div>
+                <div class="t-row">
+                  <span>6. FB 2</span>
+                  <span>12</span>
+                  <span>18</span>
+                </div>
+                <div class="t-row t-vbk">
+                  <span><strong>7. Vigerslev BK</strong></span>
+                  <span><strong>12</strong></span>
+                  <span><strong>17</strong></span>
+                </div>
+                <div class="t-row">
+                  <span>8. Union 2</span>
+                  <span>12</span>
+                  <span>14</span>
+                </div>
+              </div>
+              <a href="#" class="gic-link">Se Komplet Ligatabel ›</a>
+            </div>
+
+          </div><!-- /.panel-grid-3col -->
+        </div><!-- /#tab-hold1 -->
+
+        <!-- ── TAB 2: 2. HOLD (Serie 2) ── -->
+        <div class="team-tab-panel" id="tab-hold2">
+          <div class="panel-grid-3col">
+            <div class="glass-info-card">
+              <div class="gic-header">
+                <span class="gic-badge status-draw">UAFGJORT (2-2)</span>
+                <span class="gic-date">10. Nov 2024</span>
+              </div>
+              <h4 class="gic-title">Seneste Kamp</h4>
+              <div class="score-summary-box">
+                <div class="score-team highlight"><span class="st-name">VBK 2</span><span class="st-score">2</span></div>
+                <div class="score-divider">–</div>
+                <div class="score-team"><span class="st-name">Union 2</span><span class="st-score">2</span></div>
+              </div>
+              <p class="gic-note">Stærk comebacks-indsats i 2. halvleg sikrede 1 point.</p>
+              <a href="#" class="gic-link">Se Kampreferat ›</a>
+            </div>
+            <div class="glass-info-card highlighted-border">
+              <div class="gic-header"><span class="gic-badge badge-upcoming">KOMMENDE</span><span class="gic-date">Søn. 15. Nov • 13:00</span></div>
+              <h4 class="gic-title">Næste Kamp</h4>
+              <div class="next-fixture-box">
+                <div class="fixture-row"><strong>FA 2000 3</strong> <span class="vs-tag">VS</span> <strong class="highlight-vbk">VBK 2</strong></div>
+                <span class="venue-tag">📍 Jens Jessens Vej, Frb</span>
+              </div>
+              <p class="gic-note">Lokalopgør med masser af intensitet på banen.</p>
+              <a href="#" class="gic-link">Fuld Kampprogram ›</a>
+            </div>
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge badge-table">SERIE 2</span><span class="gic-date">Pulje 3</span></div>
+              <h4 class="gic-title">Stilling i Serie 2</h4>
+              <div class="mini-table">
+                <div class="t-row t-head"><span>Hold</span><span>K</span><span>Pts</span></div>
+                <div class="t-row t-vbk"><span><strong>7. Vigerslev BK 2</strong></span><span><strong>12</strong></span><span><strong>15</strong></span></div>
+              </div>
+              <p class="gic-note">Målscore: 24 - 22 (+2)</p>
+              <a href="#" class="gic-link">Se Komplet Ligatabel ›</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB 3: 3. HOLD (Serie 4) ── -->
+        <div class="team-tab-panel" id="tab-hold3">
+          <div class="panel-grid-3col">
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge status-win">SEJR (4-1)</span><span class="gic-date">9. Nov 2024</span></div>
+              <h4 class="gic-title">Seneste Kamp</h4>
+              <div class="score-summary-box">
+                <div class="score-team highlight"><span class="st-name">VBK 3</span><span class="st-score">4</span></div>
+                <div class="score-divider">–</div>
+                <div class="score-team"><span class="st-name">Bk. Frem 3</span><span class="st-score">1</span></div>
+              </div>
+              <p class="gic-note">Målfest i Valby med strålende angrebsfodbold.</p>
+              <a href="#" class="gic-link">Se Kampreferat ›</a>
+            </div>
+            <div class="glass-info-card highlighted-border">
+              <div class="gic-header"><span class="gic-badge badge-upcoming">KOMMENDE</span><span class="gic-date">Søn. 15. Nov • 11:00</span></div>
+              <h4 class="gic-title">Næste Kamp</h4>
+              <div class="next-fixture-box">
+                <div class="fixture-row"><strong>Husum BK 4</strong> <span class="vs-tag">VS</span> <strong class="highlight-vbk">VBK 3</strong></div>
+                <span class="venue-tag">📍 Husum Parken</span>
+              </div>
+              <p class="gic-note">Mulighed for at avancere til top 3 ved sejr.</p>
+              <a href="#" class="gic-link">Fuld Kampprogram ›</a>
+            </div>
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge badge-table">SERIE 4</span><span class="gic-date">Stilling</span></div>
+              <h4 class="gic-title">Top 4 Placering</h4>
+              <div class="mini-table">
+                <div class="t-row t-head"><span>Hold</span><span>K</span><span>Pts</span></div>
+                <div class="t-row t-vbk"><span><strong>4. Vigerslev BK 3</strong></span><span><strong>12</strong></span><span><strong>19</strong></span></div>
+              </div>
+              <p class="gic-note">Stærk efterårssæson med 6 sejre.</p>
+              <a href="#" class="gic-link">Se Komplet Ligatabel ›</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB 4: 4. HOLD (Serie 5) ── -->
+        <div class="team-tab-panel" id="tab-hold4">
+          <div class="panel-grid-3col">
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge status-win">SEJR (3-0)</span><span class="gic-date">8. Nov 2024</span></div>
+              <h4 class="gic-title">Seneste Kamp</h4>
+              <div class="score-summary-box">
+                <div class="score-team highlight"><span class="st-name">VBK 4</span><span class="st-score">3</span></div>
+                <div class="score-divider">–</div>
+                <div class="score-team"><span class="st-name">Amager FF 5</span><span class="st-score">0</span></div>
+              </div>
+              <p class="gic-note">Clean sheet og fuldstændig kontrol i 90 minutter.</p>
+              <a href="#" class="gic-link">Se Kampreferat ›</a>
+            </div>
+            <div class="glass-info-card highlighted-border">
+              <div class="gic-header"><span class="gic-badge badge-upcoming">KOMMENDE</span><span class="gic-date">Søn. 15. Nov • 10:00</span></div>
+              <h4 class="gic-title">Næste Kamp</h4>
+              <div class="next-fixture-box">
+                <div class="fixture-row"><strong>Dragør BK 3</strong> <span class="vs-tag">VS</span> <strong class="highlight-vbk">VBK 4</strong></div>
+                <span class="venue-tag">📍 Dragør Boldklub</span>
+              </div>
+              <a href="#" class="gic-link">Fuld Kampprogram ›</a>
+            </div>
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge badge-table">SERIE 5</span><span class="gic-date">Podieplads</span></div>
+              <h4 class="gic-title">Nr. 3 i Serie 5</h4>
+              <div class="mini-table">
+                <div class="t-row t-head"><span>Hold</span><span>K</span><span>Pts</span></div>
+                <div class="t-row t-vbk"><span><strong>3. Vigerslev BK 4</strong></span><span><strong>12</strong></span><span><strong>21</strong></span></div>
+              </div>
+              <a href="#" class="gic-link">Se Komplet Ligatabel ›</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TAB 5: VETERANER (+60) ── -->
+        <div class="team-tab-panel" id="tab-veteran">
+          <div class="panel-grid-3col">
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge status-win">SEJR (2-1)</span><span class="gic-date">5. Nov 2024</span></div>
+              <h4 class="gic-title">Seneste Kamp</h4>
+              <div class="score-summary-box">
+                <div class="score-team highlight"><span class="st-name">VBK +60</span><span class="st-score">2</span></div>
+                <div class="score-divider">–</div>
+                <div class="score-team"><span class="st-name">FB +60</span><span class="st-score">1</span></div>
+              </div>
+              <p class="gic-note">Kæmpe rutine og flot fight af vores veteraner.</p>
+              <a href="#" class="gic-link">Se Kampreferat ›</a>
+            </div>
+            <div class="glass-info-card highlighted-border">
+              <div class="gic-header"><span class="gic-badge badge-upcoming">KOMMENDE</span><span class="gic-date">Tirs. 17. Nov • 18:30</span></div>
+              <h4 class="gic-title">Næste Kamp</h4>
+              <div class="next-fixture-box">
+                <div class="fixture-row"><strong>Vanløse +60</strong> <span class="vs-tag">VS</span> <strong class="highlight-vbk">VBK +60</strong></div>
+                <span class="venue-tag">📍 Vanløse Idrætspark</span>
+              </div>
+              <a href="#" class="gic-link">Fuld Kampprogram ›</a>
+            </div>
+            <div class="glass-info-card">
+              <div class="gic-header"><span class="gic-badge badge-table">+60 RÆKKEN</span><span class="gic-date">2. Plads</span></div>
+              <h4 class="gic-title">Sølvplads i Rækken</h4>
+              <div class="mini-table">
+                <div class="t-row t-head"><span>Hold</span><span>K</span><span>Pts</span></div>
+                <div class="t-row t-vbk"><span><strong>2. Vigerslev BK +60</strong></span><span><strong>8</strong></span><span><strong>16</strong></span></div>
+              </div>
+              <a href="#" class="gic-link">Se Komplet Ligatabel ›</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.tab-content-wrapper -->
+
+    </div><!-- /.site-container -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       4. MODERN BENTO NEWS GRID
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-news-section" id="nyheder">
+    <div class="site-container">
+
+      <div class="section-top-bar">
+        <div>
+          <span class="eyebrow-emerald">KLUBJOURNAL</span>
+          <h2 class="modern-section-title">NYHEDER &amp; HISTORIER</h2>
+        </div>
+        <a href="#" class="btn-outline-glow">Arkiv &amp; Artikler ›</a>
+      </div>
+
+      <div class="bento-news-grid">
+
+        <!-- Featured Large Story -->
+        <article class="bento-card bento-hero-story">
+          <div class="bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?w=800&q=85&fit=crop" alt="1. hold sejrsjubel" class="bento-cover" />
+            <div class="bento-badge-top">FREMHÆVET ARTIKEL</div>
+          </div>
+          <div class="bento-story-body">
+            <div class="meta-inline">
+              <span class="meta-tag emerald">1. HOLD (KS)</span>
+              <span class="meta-time">12. November 2024 &bull; 4 min læsetid</span>
+            </div>
+            <h3 class="bento-title-lg">
+              <a href="#">Taktisk triumf på udebane: 3–1 sejr over rivalerne fra B1908</a>
+            </h3>
+            <p class="bento-desc">
+              Efter en forrygende 2. halvleg med højt pres og kliniske afslutninger sikrede 1. holdet tre vitale point. Læs cheftrænerens analyse af nøgleøjeblikkene.
+            </p>
+            <a href="#" class="btn-read-story">Læs Hele Kamprapporten ➔</a>
+          </div>
+        </article>
+
+        <!-- Side Story 1 -->
+        <article class="bento-card bento-small-story">
+          <div class="bento-img-wrap-sm">
+            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=500&q=80&fit=crop" alt="Klubhus modernisering" class="bento-cover" />
+            <span class="bento-badge-sm">ANLÆG</span>
+          </div>
+          <div class="bento-story-body-sm">
+            <span class="meta-tag gold">KLUBHUS</span>
+            <h4 class="bento-title-sm"><a href="#">Første spadestik til nyt cafeteria og omklædningsrum</a></h4>
+            <span class="meta-time">8. November 2024</span>
+          </div>
+        </article>
+
+        <!-- Side Story 2 -->
+        <article class="bento-card bento-small-story">
+          <div class="bento-img-wrap-sm">
+            <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=500&q=80&fit=crop" alt="Veteranfodbold" class="bento-cover" />
+            <span class="bento-badge-sm">FÆLLESSKAB</span>
+          </div>
+          <div class="bento-story-body-sm">
+            <span class="meta-tag blue">VETERAN</span>
+            <h4 class="bento-title-sm"><a href="#">+60 Holdet fortsætter sejrsrækken: Ubesejret i 5 kampe</a></h4>
+            <span class="meta-time">3. November 2024</span>
+          </div>
+        </article>
+
+      </div><!-- /.bento-news-grid -->
+
+    </div><!-- /.site-container -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       5. MEMBERSHIP EXPERIENCE (Dark Emerald Banner)
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-cta-section" id="medlem">
+    <div class="site-container">
+      <div class="cta-glass-card">
+        
+        <div class="cta-text-side">
+          <span class="pill-glow">BLIV EN DEL AF VIGERSLEV BK</span>
+          <h2 class="cta-hero-heading">
+            KLAR TIL AT TRÆKKE DEN <span class="text-emerald">GRØNNE TRØJE</span> OVER HOVEDET?
+          </h2>
+          <p class="cta-hero-sub">
+            Uanset om du søger konkurrencepræget divisionsfodbold eller social motionsfodbold med gode kammerater, er døren altid åben i Valbys mest traditionsrige klub.
+          </p>
+
+          <div class="cta-check-list">
+            <div class="check-item"><span class="chk">✓</span> Prøvetræning er altid gratis og uforpligtende</div>
+            <div class="check-item"><span class="chk">✓</span> Faste træningstider på kunstgræs og græsbaner</div>
+            <div class="check-item"><span class="chk">✓</span> Aktivt socialt klubliv med fællesspisning og arrangementer</div>
+          </div>
+
+          <div class="cta-action-group">
+            <a href="mailto:kontakt@vigerslevboldklub.dk" class="btn-emerald-large">Tilmeld Prøvetræning</a>
+            <a href="#klubben" class="btn-ghost-large">Find Klubhuset &amp; Baner</a>
+          </div>
+        </div>
+
+        <div class="cta-stat-side">
+          <div class="stat-glass-badge">
+            <span class="stat-val">1956</span>
+            <span class="stat-tit">ÅR GRUNDLAGT</span>
+          </div>
+          <div class="stat-glass-badge">
+            <span class="stat-val">5+</span>
+            <span class="stat-tit">AKTIVE HOLD</span>
+          </div>
+          <div class="stat-glass-badge">
+            <span class="stat-val">350+</span>
+            <span class="stat-tit">MEDLEMMER</span>
+          </div>
+          <div class="stat-glass-badge">
+            <span class="stat-val">100%</span>
+            <span class="stat-tit">FÆLLESSKAB</span>
+          </div>
+        </div>
+
+      </div><!-- /.cta-glass-card -->
+    </div><!-- /.site-container -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       6. CLUBHOUSE & VENUE (Valby Map & Info)
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-venue-section" id="klubben">
+    <div class="site-container">
+      <div class="venue-flex-card">
+        
+        <div class="venue-info-pane">
+          <span class="eyebrow-emerald">KLUBHUS &amp; FACILITETER</span>
+          <h3 class="venue-heading">VIGERSLEV ALLÉ 80, 2500 VALBY</h3>
+          <p class="venue-desc">
+            Vores historiske anlæg er klubbens hjerte. Her mødes spillere og trænere før og efter træning og kampe til hyggeligt samvær, taktisk gennemgang og kolde forfriskninger i cafeteriet.
+          </p>
+          
+          <div class="venue-contact-rows">
+            <div class="v-row">
+              <span class="v-icon">📍</span>
+              <div>
+                <strong>Adresse</strong>
+                <p>Vigerslev Allé 80, 2500 Valby</p>
+              </div>
+            </div>
+            <div class="v-row">
+              <span class="v-icon">🚆</span>
+              <div>
+                <strong>Transport</strong>
+                <p>5 min gang fra København Syd St. / Vigerslev Allé St.</p>
+              </div>
+            </div>
+            <div class="v-row">
+              <span class="v-icon">✉</span>
+              <div>
+                <strong>E-mail</strong>
+                <p><a href="mailto:kontakt@vigerslevboldklub.dk">kontakt@vigerslevboldklub.dk</a></p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-emerald-route">Åbn i Google Maps ➔</a>
+        </div>
+
+        <div class="venue-image-pane">
+          <img src="images/pitch_bg.png" alt="Baneanlæg" class="venue-backdrop" />
+          <div class="venue-card-floater">
+            <div class="vcf-crest">
+              <img src="images/logo.webp" alt="Vigerslev Logo" />
+            </div>
+            <div class="vcf-text">
+              <strong>HJEMMEBANE FOR VBK</strong>
+              <span>Velkommen til grønne sejre i Valby</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       7. ULTRA-CLEAN SPONSOR WALL
+  ═══════════════════════════════════════════════ -->
+  <section class="modern-sponsor-wall" id="sponsorer">
+    <div class="site-container">
+      
+      <div class="sponsor-wall-header">
+        <span class="eyebrow-emerald">STOLTE SAMARBEJDSPARTNERE</span>
+        <h3 class="sponsor-wall-title">VORES SPONSORER STØTTER FÆLLESSKABET</h3>
+      </div>
+
+      <div class="modern-sponsor-grid">
+        <div class="msp-card"><img src="images/sp_rema_2x.png" alt="REMA 1000 Valby" /></div>
+        <div class="msp-card"><img src="images/sp_carlsberg_2x.png" alt="Carlsberg" /></div>
+        <div class="msp-card"><img src="images/sp_sportsworld_2x.png" alt="Sports World" /></div>
+        <div class="msp-card"><img src="images/sp_puma_2x.png" alt="PUMA" /></div>
+        <div class="msp-card"><img src="images/sp_unisport_2x.png" alt="unisport" /></div>
+        <div class="msp-card"><img src="images/sp_clever_2x.png" alt="Clever" /></div>
+        <div class="msp-card"><img src="images/sp_sydbank_2x.png" alt="Sydbank" /></div>
+        <div class="msp-card"><img src="images/sp_danske_2x.png" alt="Danske Fragtmænd" /></div>
+        <div class="msp-card"><img src="images/sp_lokalbolig_2x.png" alt="LokalBolig" /></div>
+      </div>
+
+      <div class="sponsor-cta-text">
+        <span>Vil din virksomhed støtte lokalsporten og fællesskabet i Valby?</span>
+        <a href="mailto:kontakt@vigerslevboldklub.dk">Bliv sponsor for Vigerslev BK ›</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       8. MODERN FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="modern-footer">
+    <div class="site-container">
+      
+      <div class="footer-primary-grid">
+        
+        <!-- Brand Summary -->
+        <div class="f-col-brand">
+          <div class="f-logo-line">
+            <img src="images/logo.webp" alt="Vigerslev Logo" class="f-crest" />
+            <span class="f-club-title">VIGERSLEV BOLDKLUB</span>
+          </div>
+          <p class="f-tagline">FODBOLD I VALBY SIDEN 1956</p>
+          <p class="f-summary">
+            Grundlagt med passion for spillet og troen på, at fællesskabet uden for banen er lige så vigtigt som sejrene på den.
+          </p>
+          <div class="f-social-cluster">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Hold -->
+        <div class="f-col">
+          <h4 class="f-head">Vores Hold</h4>
+          <ul class="f-links">
+            <li><a href="#matchcenter">1. Hold — KS</a></li>
+            <li><a href="#matchcenter">2. Hold — Serie 2</a></li>
+            <li><a href="#matchcenter">3. Hold — Serie 4</a></li>
+            <li><a href="#matchcenter">4. Hold — Serie 5</a></li>
+            <li><a href="#matchcenter">Veteraner — +60</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Klubben -->
+        <div class="f-col">
+          <h4 class="f-head">Hurtig Navigation</h4>
+          <ul class="f-links">
+            <li><a href="#hero">Forside</a></li>
+            <li><a href="#matchcenter">Kampprogram</a></li>
+            <li><a href="#nyheder">Klubnyheder</a></li>
+            <li><a href="#medlem">Bliv Medlem</a></li>
+            <li><a href="#klubben">Klubhus &amp; Baner</a></li>
+            <li><a href="#sponsorer">Sponsorer</a></li>
+            <li><a href="index.html">Klassisk Version (V1)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Box -->
+        <div class="f-col">
+          <h4 class="f-head">Kontakt</h4>
+          <div class="f-address-box">
+            <p>📍 Vigerslev Allé 80<br />2500 Valby, Danmark</p>
+            <p>✉ <a href="mailto:kontakt@vigerslevboldklub.dk">kontakt@vigerslevboldklub.dk</a></p>
+          </div>
+          <a href="#medlem" class="btn-f-join">Tilmeld som Medlem</a>
+        </div>
+
+      </div><!-- /.footer-primary-grid -->
+
+      <div class="footer-legal-line">
+        <span>&copy; <span id="v2Year"></span> Vigerslev Boldklub. Alle rettigheder forbeholdes.</span>
+        <span>Udviklet som responsiv frontend prototype (V2)</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- INLINED V2 JAVASCRIPT (NO EXTERNAL JS FILE NEEDED) -->
+  <script>
+/**
+ * Vigerslev Boldklub — Modern Theme (V2) JavaScript
+ * Live Countdown Timer, Interactive Team Tabs, Mobile Nav
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Footer Year
+  const yr = document.getElementById('v2Year');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // 2. Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const menuList = document.getElementById('menuList');
+  if (menuToggle && menuList) {
+    menuToggle.addEventListener('click', () => {
+      menuList.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-items-modern a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuList.classList.remove('open');
+      });
+    });
+  }
+
+  // 3. Interactive MatchCenter Team Tabs
+  const tabBtns = document.querySelectorAll('.team-tab-btn');
+  const tabPanels = document.querySelectorAll('.team-tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTeam = btn.getAttribute('data-team');
+
+      // Update button active state
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Show matching panel
+      tabPanels.forEach(panel => {
+        panel.classList.remove('active');
+        if (panel.id === `tab-${targetTeam}`) {
+          panel.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // 4. Live Match Countdown Timer (Target: Next Saturday 12:30)
+  const daysEl  = document.getElementById('cdDays');
+  const hoursEl = document.getElementById('cdHours');
+  const minsEl  = document.getElementById('cdMins');
+  const secsEl  = document.getElementById('cdSecs');
+
+  if (daysEl && hoursEl && minsEl && secsEl) {
+    // Set match target to 2 days, 14 hours, 45 mins from now
+    const now = new Date().getTime();
+    const targetMatchTime = now + (2 * 24 * 60 * 60 * 1000) + (14 * 60 * 60 * 1000) + (45 * 60 * 1000);
+
+    const updateTimer = () => {
+      const currentTime = new Date().getTime();
+      const diff = targetMatchTime - currentTime;
+
+      if (diff <= 0) {
+        daysEl.textContent  = '00';
+        hoursEl.textContent = '00';
+        minsEl.textContent  = '00';
+        secsEl.textContent  = '00';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent  = String(d).padStart(2, '0');
+      hoursEl.textContent = String(h).padStart(2, '0');
+      minsEl.textContent  = String(m).padStart(2, '0');
+      secsEl.textContent  = String(s).padStart(2, '0');
+    };
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  }
+
+  // 5. Header backdrop blur intensifies on scroll
+  const header = document.getElementById('modernHeader');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+      } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  }
+
+  console.log('⚡ Vigerslev BK Next-Gen Portal (V2) Active');
+});
+
+
+  </script>
+</body>
+</html>
+
